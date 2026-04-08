@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Order Management</title>
+  <script>
+    // Redirect based on role, or to login
+    const role = localStorage.getItem('role');
+    const pages = { frontdesk: '/frontdesk.html', waiter: '/waiter.html', chef: '/chef.html' };
+    window.location.href = pages[role] || '/login.html';
+  </script>
+</head>
+<body></body>
+</html>

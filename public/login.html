@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — Hotel Orders</title>
+  <meta name="description" content="Hotel Order Management System — Staff Login">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="login-page">
+
+  <div class="login-card">
+    <div class="login-logo">
+      <span class="login-logo-icon">🏨</span>
+      <h1>Hotel Orders</h1>
+      <p>Staff management portal</p>
+    </div>
+
+    <form id="login-form" novalidate>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input
+          id="email"
+          class="form-control"
+          type="email"
+          placeholder="you@hotel.com"
+          autocomplete="email"
+          required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          class="form-control"
+          type="password"
+          placeholder="••••••••"
+          autocomplete="current-password"
+          required>
+      </div>
+
+      <p id="error-msg" class="error-msg"></p>
+
+      <button id="submit-btn" class="btn-login" type="submit">Sign In</button>
+    </form>
+
+    <div class="login-hint">
+      <p>
+        <strong>Frontdesk:</strong> frontdesk@hotel.com<br>
+        <strong>Waiter:</strong> waiter@hotel.com<br>
+        <strong>Chef:</strong> chef@hotel.com<br>
+        Password: <code>password123</code>
+      </p>
+    </div>
+  </div>
+
+  <script type="module" src="/js/auth.js"></script>
+  <script type="module">
+    import { initLoginPage } from '/js/auth.js';
+    initLoginPage();
+  </script>
+</body>
+</html>

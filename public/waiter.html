@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waiter — Hotel Orders</title>
+  <meta name="description" content="Waiter portal for placing dine-in table orders">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="dashboard">
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="topbar-brand">
+      🏨 <span>Hotel Orders</span>
+    </div>
+    <span class="topbar-role">Waiter</span>
+    <div class="topbar-user">
+      <span id="user-name"></span>
+      <button id="logout-btn">Sign Out</button>
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <div class="dashboard-body">
+
+    <!-- MAIN -->
+    <main class="main-panel">
+
+      <!-- Table Picker -->
+      <section class="tables-section">
+        <h2 class="section-title">🪑 Select Table</h2>
+        <p id="selected-table-label" class="selected-table-info">No table selected</p>
+        <div id="tables-grid" class="tables-grid">
+          <p style="color:var(--text-muted);font-size:.85rem;">Loading tables…</p>
+        </div>
+      </section>
+
+      <!-- Category Filters -->
+      <section>
+        <h2 class="section-title">🍽️ Menu</h2>
+        <div id="category-filters" class="category-filters"></div>
+        <div id="menu-grid" class="menu-grid">
+          <p style="color:var(--text-muted);font-size:.85rem;">Loading menu…</p>
+        </div>
+      </section>
+
+      <!-- Today's Orders -->
+      <section class="orders-section">
+        <h2 class="section-title">📋 Today's Orders</h2>
+        <div id="orders-list" class="orders-list">
+          <p class="no-orders">Loading…</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- SIDEBAR: Cart -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h3>🛒 Cart</h3>
+      </div>
+
+      <div id="cart-list" class="sidebar-body">
+        <p class="cart-empty">Your cart is empty</p>
+      </div>
+
+      <div class="sidebar-footer">
+        <textarea id="order-note" class="cart-note-area" rows="2" placeholder="Order notes (optional)…"></textarea>
+        <div class="cart-total-row">
+          <span class="cart-total-label">Total</span>
+          <span id="cart-total" class="cart-total-value">$0.00</span>
+        </div>
+        <button id="place-order-btn" class="btn btn-primary" style="width:100%;justify-content:center;padding:.7rem;">
+          Place Order
+        </button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Toast container -->
+  <div id="toast-container"></div>
+
+  <script type="module" src="/js/waiter.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "hotel-order-management",
+  "version": "1.0.0",
+  "description": "Real-time hotel order management system",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx vercel dev",
+    "seed": "node -r dotenv/config scripts/seed.js",
+    "start": "node scripts/local-dev.js"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^0.9.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5"
+  },
+  "engines": {
+    "node": "20.x"
+  }
+}

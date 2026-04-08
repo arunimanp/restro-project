@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chef — Hotel Orders</title>
+  <meta name="description" content="Chef dashboard — real-time Kanban order management">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="chef-dashboard">
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="topbar-brand">
+      🏨 <span>Hotel Orders</span>
+    </div>
+    <span class="topbar-role">Kitchen</span>
+    <div class="topbar-user">
+      <span id="user-name"></span>
+      <span id="live-indicator" style="
+        font-size:.75rem;
+        color:var(--success);
+        display:flex;align-items:center;gap:.3rem;">
+        <span style="display:inline-block;width:8px;height:8px;background:var(--success);
+          border-radius:50%;animation:pulse 1.5s infinite;"></span>
+        Live
+      </span>
+      <button id="logout-btn">Sign Out</button>
+    </div>
+  </header>
+
+  <!-- KANBAN BOARD -->
+  <div class="kanban-board">
+
+    <!-- Pending -->
+    <div class="kanban-column" id="kanban-pending">
+      <div class="kanban-col-header">
+        <span class="kanban-col-dot dot--pending"></span>
+        <span class="kanban-col-title">Pending</span>
+        <span id="count-pending" class="kanban-count">0</span>
+      </div>
+      <div class="kanban-col-body" id="col-pending">
+        <p style="color:var(--text-muted);font-size:.82rem;text-align:center;padding:1rem 0;">
+          No pending orders
+        </p>
+      </div>
+    </div>
+
+    <!-- In Progress -->
+    <div class="kanban-column" id="kanban-in_progress">
+      <div class="kanban-col-header">
+        <span class="kanban-col-dot dot--in_progress"></span>
+        <span class="kanban-col-title">In Progress</span>
+        <span id="count-in_progress" class="kanban-count">0</span>
+      </div>
+      <div class="kanban-col-body" id="col-in_progress">
+        <p style="color:var(--text-muted);font-size:.82rem;text-align:center;padding:1rem 0;">
+          Nothing cooking yet
+        </p>
+      </div>
+    </div>
+
+    <!-- Ready -->
+    <div class="kanban-column" id="kanban-ready">
+      <div class="kanban-col-header">
+        <span class="kanban-col-dot dot--ready"></span>
+        <span class="kanban-col-title">Ready</span>
+        <span id="count-ready" class="kanban-count">0</span>
+      </div>
+      <div class="kanban-col-body" id="col-ready">
+        <p style="color:var(--text-muted);font-size:.82rem;text-align:center;padding:1rem 0;">
+          Nothing ready yet
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Toast container -->
+  <div id="toast-container"></div>
+
+  <!-- Pulse animation for live dot -->
+  <style>
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: .5;
+        transform: scale(1.4);
+      }
+    }
+  </style>
+
+  <script type="module" src="/js/chef.js"></script>
+</body>
+
+</html>

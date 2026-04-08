@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontdesk — Hotel Orders</title>
+  <meta name="description" content="Frontdesk portal for placing room-service orders">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="dashboard">
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="topbar-brand">
+      🏨 <span>Hotel Orders</span>
+    </div>
+    <span class="topbar-role">Frontdesk</span>
+    <div class="topbar-user">
+      <span id="user-name"></span>
+      <button id="logout-btn">Sign Out</button>
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <div class="dashboard-body">
+
+    <!-- MAIN: Menu + Orders -->
+    <main class="main-panel">
+
+      <!-- Room Number Input -->
+      <section style="margin-bottom:1.5rem;">
+        <h2 class="section-title">🚪 Room Service Order</h2>
+        <div class="input-row">
+          <label for="room-number">Room&nbsp;#</label>
+          <input id="room-number" class="input-inline" type="text" placeholder="e.g. 204" maxlength="10">
+        </div>
+      </section>
+
+      <!-- Category Filters -->
+      <section>
+        <h2 class="section-title">🍽️ Menu</h2>
+        <div id="category-filters" class="category-filters"></div>
+        <div id="menu-grid" class="menu-grid">
+          <p style="color:var(--text-muted);font-size:.85rem;">Loading menu…</p>
+        </div>
+      </section>
+
+      <!-- Today's Orders -->
+      <section class="orders-section">
+        <h2 class="section-title">📋 Today's Orders</h2>
+        <div id="orders-list" class="orders-list">
+          <p class="no-orders">Loading…</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- SIDEBAR: Cart -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h3>🛒 Cart</h3>
+        <span id="cart-count" class="badge badge--pending" style="visibility:hidden">0</span>
+      </div>
+
+      <div id="cart-list" class="sidebar-body">
+        <p class="cart-empty">Your cart is empty</p>
+      </div>
+
+      <div class="sidebar-footer">
+        <textarea id="order-note" class="cart-note-area" rows="2" placeholder="Order notes (optional)…"></textarea>
+        <div class="cart-total-row">
+          <span class="cart-total-label">Total</span>
+          <span id="cart-total" class="cart-total-value">$0.00</span>
+        </div>
+        <button id="place-order-btn" class="btn btn-primary" style="width:100%;justify-content:center;padding:.7rem;">
+          Place Order
+        </button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Toast container -->
+  <div id="toast-container"></div>
+
+  <script type="module" src="/js/frontdesk.js"></script>
+</body>
+</html>
